@@ -85,5 +85,16 @@ int main()
     {
         toSolve.push_back(make_pair(num, to_string(int(num))));
     }
-    cout << (solver(toSolve) == "" ? "There is not a solution" : "There is a solution")<< endl;
+    string solved = solver(toSolve);
+    cout << (solved == "" ? "There is not a solution" : "There is at least one solution")<< endl;
+    if(solved != "")
+    {
+        cout << "Reveal solution(s)? (y/n): ";
+        string resp;
+        cin >> resp;
+        if(resp == "y")
+        {
+            cout << solved << endl;
+        }
+    }
 }
