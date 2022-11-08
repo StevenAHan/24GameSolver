@@ -90,7 +90,7 @@ string solver(vector<pair<double,string>>& nums)
             combinations += solver(newNums);
             }
         }
-        return combinations;
+        return duplicateRemover(combinations);
     }
 }
 
@@ -117,7 +117,7 @@ int main()
         cin >> resp;
         if(resp == "y")
         {
-            cout << duplicateRemover(solved);
+            cout << solved;
         }
     }
 }
