@@ -7,6 +7,7 @@ Made By: Steven Han
 #include <bits/stdc++.h>
 using namespace std;
 
+// Removes Duplicates in the Solution String
 string duplicateRemover(string& orig)
 {
     int ptr = 0;
@@ -27,6 +28,7 @@ string duplicateRemover(string& orig)
     return ans;
 }
 
+// Solves the problem, returning a string of the answers
 string solver(vector<pair<double,string>>& nums) 
 {
     if(nums[0].first == 24 && nums.size() == 1)
@@ -92,7 +94,7 @@ string solver(vector<pair<double,string>>& nums)
     }
 }
 
-
+// Main function, directs the user
 int main() 
 {
     cout << "Please enter your numbers: ";
