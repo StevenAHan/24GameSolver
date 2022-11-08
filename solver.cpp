@@ -7,6 +7,25 @@ Made By: Steven Han
 #include <bits/stdc++.h>
 using namespace std;
 
+string duplicateRemover(string& orig)
+{
+    int ptr = 0;
+    unordered_set<string> strings;
+    for(int i = 0; i < orig.size(); i++)
+    {
+        if(orig[i] == '\n')
+        {
+            strings.insert(orig.substr(ptr, i - ptr));
+            ptr = i + 1;
+        }
+    }
+    string ans = "";
+    for(const string& str : strings)
+    {
+        ans += str + '\n';
+    }
+    return ans;
+}
 
 string solver(vector<pair<double,string>>& nums) 
 {
@@ -60,7 +79,7 @@ string solver(vector<pair<double,string>>& nums)
             newNums[i].second = "(" + newNums[j].second + "-" + newNums[i].second + ")";
             newNums.erase(newNums.begin()+j);
             combinations += solver(newNums);
-            
+
             // / (r / l)
             newNums = nums;
             newNums[i].first = newNums[j].first + newNums[i].first;
@@ -97,7 +116,7 @@ int main()
         cin >> resp;
         if(resp == "y")
         {
-            cout << solved << endl;
+            cout << duplicateRemover(solved) << endl;
         }
     }
 }
