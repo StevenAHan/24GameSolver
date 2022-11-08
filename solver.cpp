@@ -32,12 +32,14 @@ string solver(vector<pair<double,string>>& nums)
             newNums[i].second = "(" + newNums[i].second + "+" +  newNums[j].second + ")";
             newNums.erase(newNums.begin()+j);
             combinations += solver(newNums);
-            // -1
+
+            // - (l - r)
             newNums = nums;
             newNums[i].first = newNums[i].first - newNums[j].first;
             newNums[i].second = "(" + newNums[i].second + "-" + newNums[j].second + ")";
             newNums.erase(newNums.begin()+j);
             combinations += solver(newNums);
+
             // *
             newNums = nums;
             newNums[i].first = newNums[i].first * newNums[j].first;
@@ -45,20 +47,21 @@ string solver(vector<pair<double,string>>& nums)
             newNums.erase(newNums.begin()+j);
             combinations += solver(newNums);
 
-            // /1
+            // / (l / r)
             newNums = nums;
             newNums[i].first = newNums[i].first / newNums[j].first;
             newNums[i].second = "(" + newNums[i].second + "/" + newNums[j].second + ")";
             newNums.erase(newNums.begin()+j);
             combinations += solver(newNums);
 
-            // -2
+            // - (r - l)
             newNums = nums;
             newNums[i].first = newNums[j].first - newNums[i].first;
             newNums[i].second = "(" + newNums[j].second + "-" + newNums[i].second + ")";
             newNums.erase(newNums.begin()+j);
             combinations += solver(newNums);
-            // /2
+            
+            // / (r / l)
             newNums = nums;
             newNums[i].first = newNums[j].first + newNums[i].first;
             newNums[i].second = "(" + newNums[j].second + "/" + newNums[i].second + ")";
