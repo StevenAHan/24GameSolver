@@ -118,7 +118,7 @@ int main()
         cin >> resp;
         if(resp == "y")
         {
-            cout << duplicateRemover(solved) << endl;
+            cout << duplicateRemover(solved);
         }
     }
 }
