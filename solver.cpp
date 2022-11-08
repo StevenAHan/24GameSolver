@@ -101,7 +101,6 @@ int main()
     double input[4];
     for (int i = 0; i < 4; i++) 
     {
-        // Reading User Input value Based on index
         cin >> input[i];
     }
     vector<pair<double,string>> toSolve;
