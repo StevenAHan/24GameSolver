@@ -31,7 +31,7 @@ string duplicateRemover(string& orig)
 // Solves the problem, returning a string of the answers
 string solver(vector<pair<double,string>>& nums) 
 {
-    if(nums[0].first == 24 && nums.size() == 1)
+    if(nums.size() == 1 && nums[0].first > 23.99 && nums[0].first <= 24.01)
     {
         return (nums[0].second + "\n");
     }
@@ -84,7 +84,7 @@ string solver(vector<pair<double,string>>& nums)
 
             // / (r / l)
             newNums = nums;
-            newNums[i].first = newNums[j].first + newNums[i].first;
+            newNums[i].first = newNums[j].first / newNums[i].first;
             newNums[i].second = "(" + newNums[j].second + "/" + newNums[i].second + ")";
             newNums.erase(newNums.begin()+j);
             combinations += solver(newNums);
